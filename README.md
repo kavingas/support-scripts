@@ -1,6 +1,6 @@
-# My New Project
+# Adobe Support Scripts
 
-This is a new project initialized with `pnpm` and tracked with Git.
+Scripts created for identify, debug or replicate issues on Adobe Commerce
 
 ## Prerequisites
 
@@ -25,3 +25,7 @@ Make sure you have the following software installed on your machine:
     ```bash
     node script-name.js
     ```
+## Environment variables
+
+1. Rename .env.sample to .env
+2. Update required variables to match your test environment
