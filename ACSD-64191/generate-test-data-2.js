@@ -1,6 +1,6 @@
 /**
- * This script generate 2000 bundle products with 1 simple product each.
- * All the bundled products are enabled
+ * This script generate 20000 bundle products with 1 simple product each.
+ * All the bundled products are disabled
  */
 const axios = require("axios");
 const getAdminToken = require("../getAdminToken");
@@ -59,7 +59,7 @@ const createBundleProduct = async (token, sku, name, price) => {
           "sku": sku,
           "name": name,
           "attribute_set_id": 4,
-          "status": 1,
+          "status": 0, // Disabled
           "visibility": 4,
           "type_id": "bundle",
           "extension_attributes": {
@@ -124,9 +124,9 @@ const createProducts = async () => {
   const token = await getAdminToken.getAdminToken();
   await createSimpleProduct(token, "simple-product-1", "Simple Product 1", 10);
   const queue = [];
-  for (let i = 1; i <= 2000; i++) {
-    const sku = `bundle-product-${i}`;
-    const name = `Bundle Product ${i}`;
+  for (let i = 1; i <= 20000; i++) {
+    const sku = `bundle-product-dis-${i}`;
+    const name = `Bundle Product Dis ${i}`;
     const price = 100 + i;
     queue.push(createBundleProduct(token, sku, name, price));
     if (queue.length === MAC_CONCURRENT_REQUESTS) {
